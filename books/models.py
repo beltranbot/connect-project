@@ -38,26 +38,43 @@ class Editorial(models.Model):
 
 class Book(models.Model):
     titulo = models.CharField(
-        max_length=100,
         blank=False,
-        default=''
+        default='',
+        max_length=100,
     )
     subtitulo = models.CharField(
-        max_length=100,
         blank=True,
-        default=''
+        default='',
+        max_length=100,
+        null=True,
     )
-    autores = models.ManyToManyField(Author)
-    categorias = models.ManyToManyField(Category)
-    fecha_publicacion = models.DateField()
+    autores = models.ManyToManyField(
+        Author,
+        blank=True,
+    )
+    categorias = models.ManyToManyField(
+        Category,
+        blank=True,
+    )
+    fecha_publicacion = models.DateField(
+        blank=True,
+        null=True,
+    )
     editorial = models.ForeignKey(
         Editorial,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
-    descripcion = models.TextField()
+    descripcion = models.TextField(
+        blank=True,
+        null=True,
+    )
     imagen = models.ImageField(
+        blank=True,
+        default='./static/pic_folder/None/no-img.jpg',
+        null=True,
         upload_to='./static/pic_folder/',
-        default='./static/pic_folder/None/no-img.jpg'
     )
 
     def __str__(self):
