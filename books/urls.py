@@ -12,3 +12,5 @@ urlpatterns = [
     path('editorials/', views.EditorialList.as_view()),
     path('editorials/<int:pk>/', views.EditorialDetail.as_view()),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
