@@ -22,7 +22,8 @@ class BookSerializer(serializers.ModelSerializer):
             'categorias',
             'fecha_publicacion',
             'editorial',
-            'descripcion'
+            'descripcion',
+            'imagen'
         )
 
 

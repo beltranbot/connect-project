@@ -55,6 +55,10 @@ class Book(models.Model):
         on_delete=models.CASCADE
     )
     descripcion = models.TextField()
+    imagen = models.ImageField(
+        upload_to='./static/pic_folder/',
+        default='./static/pic_folder/None/no-img.jpg'
+    )
 
     def __str__(self):
         return self.titulo
