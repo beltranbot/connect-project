@@ -11,7 +11,20 @@ class AuthorSerializer(serializers.ModelSerializer):
         )
 
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = (
+            'id',
+            'nombre'
+        )
+
+
 class BookSerializer(serializers.ModelSerializer):
+    # autores_nombres = AuthorSerializer(read_only=True, many=True)
+    # autores_list = AuthorSerializer(read_only=True, many=True)
+    # categorias_list = CategorySerializer(read_only=True, many=True)
+
     class Meta:
         model = Book
         fields = (
@@ -23,16 +36,7 @@ class BookSerializer(serializers.ModelSerializer):
             'fecha_publicacion',
             'editorial',
             'descripcion',
-            'imagen'
-        )
-
-
-class CategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = (
-            'id',
-            'nombre'
+            'imagen',
         )
 
 
